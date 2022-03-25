@@ -3,11 +3,14 @@ import './Product.css';
 
 const Product = (props) => {
     // console.log(props.product);
-    //destructuring object 
-    const { name, img, seller, price, ratings } = props.product;
+    //destructuring object-------------- get by props
+    //function 
+    const { product, handleAddToCart } = props;
 
-    /*   //function 
-      const { handleAddToCart } = props; */
+    //object destructuring -------------
+    const { name, img, seller, price, ratings } = product;
+
+
 
 
     return (
