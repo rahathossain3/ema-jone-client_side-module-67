@@ -1,7 +1,12 @@
 import React from 'react';
 import './Product.css';
 
+//option 2
+// const Product = ({ product, handleAddToCart }) => {
+
+//option 1
 const Product = (props) => {
+
     // console.log(props.product);
     //destructuring object-------------- get by props
     //function 
@@ -22,7 +27,13 @@ const Product = (props) => {
                 <p><small>Seller: {seller}</small></p>
                 <p><small>Ratings: {ratings} stars</small></p>
             </div>
-            <button onClick={() => props.handleAddToCart(props.product)} className='btn-cart'>
+
+            {/*-------------without destructuring use----------------- */}
+            {/* <button onClick={() => props.handleAddToCart(props.product)} className='btn-cart'> */}
+
+
+            {/*-------------when destructuring use----------------- */}
+            <button onClick={() => handleAddToCart(product)} className='btn-cart'>
                 <p>Add to Cart</p>
             </button>
 

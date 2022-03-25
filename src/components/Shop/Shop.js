@@ -3,8 +3,11 @@ import Product from '../Product/Product';
 import './Shop.css'
 const Shop = () => {
 
-    // load data 
+    // load data or state declare
     const [products, setProducts] = useState([]);
+
+    // another state declare 
+    const [cart, setCart] = useState([])
 
     useEffect(() => {
         fetch('products.json')
@@ -13,9 +16,13 @@ const Shop = () => {
 
     }, [])
 
-    //event handler 
+    //event handler  add ------ (using other summary)
     const handleAddToCart = (product) => {
         console.log(product)
+        //cart.push(product)
+        //array copy 
+        const newCart = [...cart, product];
+        setCart(newCart);
     }
 
 
@@ -26,7 +33,7 @@ const Shop = () => {
                     products.map(product => <Product
                         key={product.id}
                         product={product}
-                        // send even handlear by a parameter-------------
+                        // send even handler by a parameter-------------
                         handleAddToCart={handleAddToCart}
                     ></Product>)
                 }
@@ -34,6 +41,8 @@ const Shop = () => {
 
             <div className="cart-container">
                 <h4>order summary</h4>
+                {/* using event handler ---------------------- */}
+                <p>selected itmes : {cart.length}</p>
             </div>
         </div>
     );
