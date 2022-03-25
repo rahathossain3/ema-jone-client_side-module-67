@@ -9,6 +9,7 @@ const Shop = () => {
     // another state declare 
     const [cart, setCart] = useState([])
 
+    //for json data
     useEffect(() => {
         fetch('products.json')
             .then(res => res.json())
