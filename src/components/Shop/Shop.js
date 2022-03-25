@@ -27,13 +27,27 @@ const Shop = () => {
     }, [])
 
     //event handler  add ------ (using other summary)
-    const handleAddToCart = (product) => {
-        // console.log(product)
-        //do not do this : cart.push(product)
-        //array copy 
-        const newCart = [...cart, product];
+    const handleAddToCart = (selectedProduct) => {
+        let newCart = [];
+        // console.log(selectedProduct)
+        const exists = cart.find(product => product.id === selectedProduct.id);
+
+        if (!exists) {
+            //যদি প্রডাক্ট না থাকে
+            selectedProduct.quantity = 1;
+            //do not do this : cart.push(selectedProduct)
+            //array copy 
+            newCart = [...cart, selectedProduct];
+        }
+        else {
+            //যদি প্রডাক্ট  থাকে
+            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists];
+        }
+
         setCart(newCart);
-        addToDb(product.id)
+        addToDb(selectedProduct.id)
     }
 
     useEffect(() => {
