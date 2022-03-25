@@ -13,9 +13,16 @@ const Shop = () => {
 
     //for json data
     useEffect(() => {
+        // console.log('console log before fetch')
         fetch('products.json')
             .then(res => res.json())
             .then(data => setProducts(data))
+
+        /* //multiline code 
+        .then(data => {
+            setProducts(data);
+            // console.log('product loaded');
+        })         */
 
     }, [])
 
@@ -29,15 +36,47 @@ const Shop = () => {
         addToDb(product.id)
     }
 
-
     useEffect(() => {
         const storedCart = getStoredCart();
-        // console.log(storedCart);
+        const saveCart = [];
         for (const id in storedCart) {
-            const addedProduct = products.find(product => product.id === id);
-            console.log(addedProduct);
+            const addedProduct = products.find(product => product.id === id)
+            if (addedProduct) {
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                saveCart.push(addedProduct);
+            }
         }
-    }, [])
+        setCart(saveCart);
+    }, [products])
+
+    /* 
+    
+        useEffect(() => {
+            console.log('local storage first line', products);
+            const storedCart = getStoredCart();
+            const saveCart = [];
+            // console.log(storedCart);
+            // get single element in the object ---
+            for (const id in storedCart) {
+                // find a single product in object using id
+                const addedProduct = products.find(product => product.id === id);
+                if (addedProduct) {
+                    // set products quantity
+                    const quantity = storedCart[id];
+                    addedProduct.quantity = quantity;
+                    saveCart.push(addedProduct);
+    
+                    // console.log(addedProduct);
+                }
+            }
+            // set setCart new value on localStorage data
+            setCart(saveCart)
+            // console.log('local storage data finished')
+        }, [products])
+        //products er man er upor nirbor korbe. products er man joto bar change hobe toto bar function ke call kora hobe.
+    
+         */
 
 
     return (
