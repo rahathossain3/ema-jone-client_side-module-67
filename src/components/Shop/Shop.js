@@ -26,6 +26,7 @@ const Shop = () => {
                     products.map(product => <Product
                         key={product.id}
                         product={product}
+                        // send even handlear by a parameter-------------
                         handleAddToCart={handleAddToCart}
                     ></Product>)
                 }
