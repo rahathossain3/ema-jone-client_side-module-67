@@ -19,7 +19,7 @@ const Shop = () => {
     //event handler  add ------ (using other summary)
     const handleAddToCart = (product) => {
         console.log(product)
-        //cart.push(product)
+        //do not do this : cart.push(product)
         //array copy 
         const newCart = [...cart, product];
         setCart(newCart);
