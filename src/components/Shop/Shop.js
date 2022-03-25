@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
@@ -20,12 +21,23 @@ const Shop = () => {
 
     //event handler  add ------ (using other summary)
     const handleAddToCart = (product) => {
-        console.log(product)
+        // console.log(product)
         //do not do this : cart.push(product)
         //array copy 
         const newCart = [...cart, product];
         setCart(newCart);
+        addToDb(product.id)
     }
+
+
+    useEffect(() => {
+        const storedCart = getStoredCart();
+        // console.log(storedCart);
+        for (const id in storedCart) {
+            const addedProduct = products.find(product => product.id === id);
+            console.log(addedProduct);
+        }
+    }, [])
 
 
     return (
