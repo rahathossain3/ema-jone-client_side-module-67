@@ -1,14 +1,29 @@
 import React from 'react';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
+import Cart from '../Cart/Cart';
 
 const Orders = () => {
-    const [products, setProducts] = useProducts()
-    const [cart, setCart] = useCart(products)
+    // ger products -------------
+    const [products, setProducts] = useProducts();
+
+    //get from local storage 
+    const [cart, setCart] = useCart(products);
+    // -----------------------------
+
     return (
-        <div>
-            <h3>This form Orders: {products.length}</h3>
-            <p>cart has: {cart.length}</p>
+        <div className='shop-container'>
+            <div className='products-container'>
+                {
+                    cart.map()
+                }
+
+            </div>
+
+            <div className="cart-container">
+                <Cart cart={cart}> </Cart>
+            </div>
+
         </div>
     );
 };
