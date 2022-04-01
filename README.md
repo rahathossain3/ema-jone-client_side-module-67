@@ -2,9 +2,9 @@
 
 module 49 
 
-## Add Shopping Cart with using Local storage data
+### Add Shopping Cart with using Local storage data
 
-## calculate local storage data & showing result in order summary 
+### calculate local storage data & showing result in order summary 
 
 
 <!-- new add file from 53 -->

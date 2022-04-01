@@ -105,7 +105,7 @@ const Shop = () => {
                     ></Product>)
                 }
             </div>
-
+            {/* orders summary------- */}
             <div className="cart-container">
                 <Cart cart={cart}> </Cart>
             </div>
