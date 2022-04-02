@@ -55,4 +55,8 @@ module 49
             </Link>
         </Cart>
 
-### 
+### button navigation 
+
+  const navigate = useNavigate();
+
+  <button onClick={() => navigate('/inventory')}>Proceed checkout</button>
