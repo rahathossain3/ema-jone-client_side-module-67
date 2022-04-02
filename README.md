@@ -20,3 +20,11 @@ module 49
 
 
 
+## Video-6
+
+## Tartary Operator
+#### Code example:
+    {/* {condition ? true : false} */}
+
+#### code example:
+ {name.length > 20 ? name.slice(0, 20) : name}
