@@ -12,6 +12,11 @@ const Orders = () => {
     const [cart, setCart] = useCart(products);
     // -----------------------------
 
+
+    const handelRemoveProduct = product => {
+        console.log(product);
+    }
+
     return (
         <div className='shop-container'>
             <div className='review-items-container'>
@@ -19,6 +24,7 @@ const Orders = () => {
                     cart.map(product => <ReviewItem
                         key={product.id}
                         product={product}
+                        handelRemoveProduct={handelRemoveProduct}
                     ></ReviewItem>)
                 }
 

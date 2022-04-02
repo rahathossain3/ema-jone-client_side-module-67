@@ -28,3 +28,13 @@ module 49
 
 #### code example:
  {name.length > 20 ? name.slice(0, 20) : name}
+
+
+ ## fontawesome icon
+
+### code 
+    import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+
+ {/* add fontawesome icon -------------------- */}
+                <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
