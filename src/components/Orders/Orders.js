@@ -14,7 +14,8 @@ const Orders = () => {
 
 
     const handelRemoveProduct = product => {
-        console.log(product);
+        const rest = cart.filter(pd => pd.id !== product.id);
+        setCart(rest);
     }
 
     return (
