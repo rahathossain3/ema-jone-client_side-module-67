@@ -38,3 +38,21 @@ module 49
 
  {/* add fontawesome icon -------------------- */}
                 <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
+
+
+## video 8
+
+### Add children {dynamic element}
+
+        Cart.js
+    {props.children}
+
+### Shopping.js
+
+    <Cart cart={cart}>
+            <Link to="/orders">
+                    <button>Review Order</button>
+            </Link>
+        </Cart>
+
+### 
