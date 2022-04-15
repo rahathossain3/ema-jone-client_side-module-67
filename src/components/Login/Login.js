@@ -12,12 +12,12 @@ const Login = () => {
                     <div className="input-group">
 
                         <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id='' />
+                        <input type="email" name="email" id='' required />
                     </div>
 
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password" name="password" id='' />
+                        <input type="password" name="password" id='' required />
                     </div>
                     <input className='from-submit' type="submit" value="Login" />
 
