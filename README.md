@@ -1,4 +1,5 @@
-# Ema-Jhon-Shopping Cart with Router    -module-53
+# Ema-Jhon-Shopping Cart with Auth   -module-59
+
 
 module 49 
 
@@ -60,3 +61,11 @@ module 49
   const navigate = useNavigate();
 
   <button onClick={() => navigate('/inventory')}>Proceed checkout</button>
+
+
+<!-- new file+++------------------------- -->
+
+## Module 59 
+
+
+
