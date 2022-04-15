@@ -25,6 +25,16 @@ const Login = () => {
                 <p>
                     New to Ema-John? <Link className='from-link' to='/signup'>Create an account</Link>
                 </p>
+
+                {/* own work --------- */}
+
+                <div className='from-line'>
+                    <div className='hr-line'></div>
+                    <p>or</p>
+                    <div className='hr-line'></div>
+                </div>
+
+                <button className='sign-in-google'>Continue with Google</button>
             </div>
 
         </div>

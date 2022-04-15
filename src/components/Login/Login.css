@@ -7,6 +7,9 @@
     border-radius: 8px;
     display: flex;
     justify-content: center;
+    /* own work ---- */
+    margin-top: 5px;
+    box-shadow: -5px 5px 3px #FF9900;
 }
 
 .input-group {
@@ -46,4 +49,30 @@
 .from-link {
     color: #FF9900;
     text-decoration: none;
+}
+
+.from-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* own work  */
+.hr-line {
+    border: 1px solid #95A0A7;
+    width: 145px;
+    height: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.sign-in-google {
+    width: 415px;
+    height: 55px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid salmon;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
