@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useProducts from '../../hooks/useProducts';
+// import useProducts from '../../hooks/useProducts';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
@@ -8,7 +8,8 @@ import './Shop.css'
 const Shop = () => {
 
     // load data or state declare
-    const [products, setProducts] = useProducts();
+    // const [products, setProducts] = useProducts();
+    const [products, setProducts] = useState([]);
 
     // another state declare 
     const [cart, setCart] = useState([])
@@ -16,6 +17,26 @@ const Shop = () => {
     //for pagination
     const [pageCount, setPageCount] = useState(0);
 
+    // page 
+    const [page, setPage] = useState(0);
+    const [size, setSize] = useState(10);
+
+    // products state for pagination 
+
+    useEffect(() => {
+        // fetch('products.json')
+        fetch(`http://localhost:5000/product?page=${page}&size${size}`)
+            .then(res => res.json())
+            .then(data => setProducts(data));
+
+    }, [])
+
+
+
+
+
+
+    // pagination
     useEffect(() => {
         fetch('http://localhost:5000/productCount')
             .then(res => res.json())
@@ -106,12 +127,22 @@ const Shop = () => {
                     ></Product>)
                 }
 
-                {/* pagination  */}
+                {/* pagination ------------ */}
                 <div className='pagination'>
                     {
                         [...Array(pageCount).keys()]
-                            .map(number => <button>{number + 1}</button>)
+                            .map(number => <button
+                                className={page === number ? 'selected' : ''}
+                                onClick={() => setPage(number)}
+                            >{number + 1}</button>)
                     }
+
+                    <select onChange={e => setSize(e.target.value)}>
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
                 </div>
             </div>
             {/* orders summary------- */}
