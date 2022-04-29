@@ -20,7 +20,7 @@ const Shop = () => {
     const handleAddToCart = (selectedProduct) => {
         let newCart = [];
         // console.log(selectedProduct)
-        const exists = cart.find(product => product.id === selectedProduct.id);
+        const exists = cart.find(product => product._id === selectedProduct._id);
 
         if (!exists) {
             //যদি প্রডাক্ট না থাকে
@@ -31,20 +31,20 @@ const Shop = () => {
         }
         else {
             //যদি প্রডাক্ট  থাকে
-            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            const rest = cart.filter(product => product._id !== selectedProduct._id);
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, exists];
         }
 
         setCart(newCart);
-        addToDb(selectedProduct.id)
+        addToDb(selectedProduct._id)
     }
 
     useEffect(() => {
         const storedCart = getStoredCart();
         const saveCart = [];
         for (const id in storedCart) {
-            const addedProduct = products.find(product => product.id === id)
+            const addedProduct = products.find(product => product._id === id)
             if (addedProduct) {
                 const quantity = storedCart[id];
                 addedProduct.quantity = quantity;
@@ -64,7 +64,7 @@ const Shop = () => {
             // get single element in the object ---
             for (const id in storedCart) {
                 // find a single product in object using id
-                const addedProduct = products.find(product => product.id === id);
+                const addedProduct = products.find(product => product._id === id);
                 if (addedProduct) {
                     // set products quantity
                     const quantity = storedCart[id];

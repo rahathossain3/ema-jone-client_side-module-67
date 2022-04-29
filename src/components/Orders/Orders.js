@@ -20,9 +20,9 @@ const Orders = () => {
 
     const handelRemoveProduct = product => {
         // jake pabe take bade sokol ke select korbo 
-        const rest = cart.filter(pd => pd.id !== product.id);
+        const rest = cart.filter(pd => pd._id !== product._id);
         setCart(rest);
-        removeFromDb(product.id);
+        removeFromDb(product._id);
     }
 
 
@@ -31,7 +31,7 @@ const Orders = () => {
             <div className='review-items-container'>
                 {
                     cart.map(product => <ReviewItem
-                        key={product.id}
+                        key={product._id}
                         product={product}
                         handelRemoveProduct={handelRemoveProduct}
                     ></ReviewItem>)
