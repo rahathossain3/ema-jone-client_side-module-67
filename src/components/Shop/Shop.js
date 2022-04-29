@@ -13,7 +13,18 @@ const Shop = () => {
     // another state declare 
     const [cart, setCart] = useState([])
 
-    //for json data
+    //for pagination
+    const [pageCount, setPageCount] = useState(0);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/productCount')
+            .then(res => res.json())
+            .then(data => {
+                const count = data.count;
+                const pages = Math.ceil(count / 10);
+                setPageCount(pages);
+            })
+    }, [])
 
 
     //event handler  add ------ (using other summary)
@@ -94,6 +105,14 @@ const Shop = () => {
                         handleAddToCart={handleAddToCart}
                     ></Product>)
                 }
+
+                {/* pagination  */}
+                <div className='pagination'>
+                    {
+                        [...Array(pageCount).keys()]
+                            .map(number => <button>{number + 1}</button>)
+                    }
+                </div>
             </div>
             {/* orders summary------- */}
             <div className="cart-container">
