@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import useProducts from '../../hooks/useProducts';
-import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import useCart from '../../hooks/useCart';
+
+import { addToDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
@@ -12,7 +13,7 @@ const Shop = () => {
     const [products, setProducts] = useState([]);
 
     // another state declare 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useCart()
 
     //for pagination
     const [pageCount, setPageCount] = useState(0);
@@ -68,19 +69,7 @@ const Shop = () => {
         addToDb(selectedProduct._id)
     }
 
-    useEffect(() => {
-        const storedCart = getStoredCart();
-        const saveCart = [];
-        for (const id in storedCart) {
-            const addedProduct = products.find(product => product._id === id)
-            if (addedProduct) {
-                const quantity = storedCart[id];
-                addedProduct.quantity = quantity;
-                saveCart.push(addedProduct);
-            }
-        }
-        setCart(saveCart);
-    }, [products])
+
 
     /* 
     
