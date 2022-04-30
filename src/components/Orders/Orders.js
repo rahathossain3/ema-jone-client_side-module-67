@@ -14,7 +14,7 @@ const Orders = () => {
     const navigate = useNavigate();
 
     //get from local storage 
-    const [cart, setCart] = useCart(products);
+    const [cart, setCart] = useCart();
     // -----------------------------
 
 
